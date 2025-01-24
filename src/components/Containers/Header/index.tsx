@@ -1,7 +1,7 @@
+import { Container } from '../../../styles/GlobalStyle'
+import Branding from '../../Branding'
 import * as S from './styles'
-import { Container } from '../../styles/GlobalStyle'
 import { Link } from 'react-router-dom'
-import Branding from '../Branding'
 
 type Props = {
   homePage?: boolean

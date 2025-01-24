@@ -1,8 +1,8 @@
+import Restaurante from '../../../models/Restaurante'
+import { Container } from '../../../styles/GlobalStyle'
+import Restaurant from '../../Restaurant'
 import { List } from './styles'
 import { useEffect, useState } from 'react'
-import Restaurante from '../../models/Restaurante'
-import { Container } from '../../styles/GlobalStyle'
-import Restaurant from '../Restaurant'
 
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState<Restaurante[]>()

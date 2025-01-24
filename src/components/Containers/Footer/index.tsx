@@ -3,9 +3,9 @@ import {
   TiSocialInstagram,
   TiSocialTwitter
 } from 'react-icons/ti'
-import { Container } from '../../styles/GlobalStyle'
-import Branding from '../Branding'
 import * as S from './styles'
+import { Container } from '../../../styles/GlobalStyle'
+import Branding from '../../Branding'
 
 const Footer = () => {
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
         <S.CopyRight>
           A efood é uma plataforma para divulgação de estabelecimentos, a
           responsabilidade pela entrega, qualidade dos produtos é toda do
-          estabelecimento contratado.{' '}
+          estabelecimento contratado.
         </S.CopyRight>
       </Container>
     </S.FooterContainer>

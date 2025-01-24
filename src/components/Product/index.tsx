@@ -1,16 +1,19 @@
 import * as S from './styles'
-import ProdutoClass from '../../models/Produto'
+import Produto from '../../models/Produto'
 
-type Props = Omit<ProdutoClass, 'id' | 'cardapio'>
+type Props = {
+  product: Produto
+  onclick: () => void
+}
 
-const Product = ({ nome, foto, preco, descricao, porcao }: Props) => {
+const Product = ({ product, onclick }: Props) => {
   return (
     <S.Card>
-      <S.Header image={foto} />
+      <S.Header image={product.foto} />
       <S.Body>
-        <S.Title>{nome}</S.Title>
-        <S.Description>{descricao}</S.Description>
-        <S.Button to={'/menu'}>Saiba mais</S.Button>
+        <S.Title>{product.nome}</S.Title>
+        <S.Description>{product.descricao}</S.Description>
+        <S.Button onClick={onclick}>Saiba mais</S.Button>
       </S.Body>
     </S.Card>
   )

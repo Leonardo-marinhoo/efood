@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { variables } from '../../styles/variables'
-import { Link } from 'react-router-dom'
 
 type Props = {
   image: string
@@ -54,7 +53,7 @@ export const Description = styled.p`
   overflow: hidden;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,4 +65,5 @@ export const Button = styled(Link)`
   text-decoration: none;
   color: ${variables.text_accent};
   margin-top: 20px;
+  border: none;
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { variables } from '../../styles/variables'
-import bgImage from '../../images/fundo.png'
+import bgImage from '../../../images/fundo.png'
+import { variables } from '../../../styles/variables'
 
 type bgProps = {
   homePage?: boolean
