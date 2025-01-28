@@ -1,5 +1,5 @@
-import Footer from '../../components/Containers/Footer'
-import RestaurantList from '../../components/Containers/RestaurantList'
+import Footer from '../../Containers/Footer'
+import RestaurantList from '../../Containers/RestaurantList'
 import Hero from '../../components/Hero'
 
 const Home = () => {

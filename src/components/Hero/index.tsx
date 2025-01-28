@@ -1,6 +1,6 @@
 import * as S from './styles'
 import { Container } from '../../styles/GlobalStyle'
-import Header from '../Containers/Header'
+import Header from '../../Containers/Header'
 const Hero = () => {
   return (
     <S.Background>

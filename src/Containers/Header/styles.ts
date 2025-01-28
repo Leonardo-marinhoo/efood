@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import bgImage from '../../../images/fundo.png'
-import { variables } from '../../../styles/variables'
+import bgImage from '../../images/fundo.png'
+import { variables } from '../../styles/variables'
 
 type bgProps = {
   homePage?: boolean
@@ -37,6 +37,12 @@ export const Cart = styled.div`
   display: flex;
   gap: 16px;
   color: ${variables.text_accent};
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: 200ms;
+  }
 `
 export const ItemCounter = styled.span`
   font-weight: 900;

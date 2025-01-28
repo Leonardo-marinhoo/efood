@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { variables } from '../../../styles/variables'
+import { variables } from '../../styles/variables'
 
 export const FooterContainer = styled.footer`
   display: flex;

@@ -1,28 +1,35 @@
-import { useEffect, useState } from 'react'
 import Produto from '../../models/Produto'
 import * as S from './styles'
+import { useDispatch } from 'react-redux'
+import { addToCart, setCartVisibility } from '../../store/reducers/cart'
+import { ToCurrency } from '../../utils/FormatCurrency'
 
 type Props = {
   product: Produto | null
+  isVisible: boolean
+  onClose: () => void
 }
 
-const Modal = ({ product }: Props) => {
-  const [visible, setVisible] = useState<boolean>(false)
+const Modal = ({ product, isVisible, onClose }: Props) => {
+  const dispatch = useDispatch()
 
-  useEffect(() => {
+  const handleAddToCart = () => {
     if (product) {
-      setVisible(true)
+      dispatch(addToCart(product))
+      dispatch(setCartVisibility(true))
     }
-  }, [product])
+    onClose()
+    product = null
+  }
 
-  if (!visible || !product) {
+  if (!isVisible || !product) {
     return null
   }
 
   return (
-    <S.ModalContainer $visible={visible}>
+    <S.ModalContainer $visible={isVisible}>
       <S.ModalContent>
-        <S.CloseButton onClick={(e) => setVisible(false)} />
+        <S.CloseButton onClick={() => onClose()} />
         <S.ProductImage src={product.foto} />
         <S.ProductInfo>
           <S.ProductTitle>{product.nome}</S.ProductTitle>
@@ -30,7 +37,9 @@ const Modal = ({ product }: Props) => {
           <S.ProductDescription margin_top="auto">
             Serve {product.porcao}
           </S.ProductDescription>
-          <S.AddButton>Adicionar ao carrinho - R$ {product.preco}</S.AddButton>
+          <S.AddButton onClick={() => handleAddToCart()}>
+            {ToCurrency(product.preco, 'Adicionar ao carrinho - ')}
+          </S.AddButton>
         </S.ProductInfo>
       </S.ModalContent>
     </S.ModalContainer>

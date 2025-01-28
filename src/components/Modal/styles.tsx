@@ -19,7 +19,7 @@ export const ModalContainer = styled.div<modalProps>`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.886);
 `
 
 export const ModalContent = styled.div`
@@ -41,7 +41,7 @@ export const ProductInfo = styled.div`
 export const ProductImage = styled.img`
   width: 280px;
   height: 280px;
-  object-fit: cover;
+  object-fit: contain;
 `
 export const ProductTitle = styled.span`
   font-weight: 900;

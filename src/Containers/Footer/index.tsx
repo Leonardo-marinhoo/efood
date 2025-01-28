@@ -4,8 +4,8 @@ import {
   TiSocialTwitter
 } from 'react-icons/ti'
 import * as S from './styles'
-import { Container } from '../../../styles/GlobalStyle'
-import Branding from '../../Branding'
+import { Container } from '../../styles/GlobalStyle'
+import Branding from '../../components/Branding'
 
 const Footer = () => {
   return (

@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
 import Banner from '../../components/Banner'
-import MenuList from '../../components/Containers/MenuList'
 import { useGetRestaurantQuery } from '../../services/api'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { updateMenu } from '../../store/reducers/menu'
-import Header from '../../components/Containers/Header'
+import Header from '../../Containers/Header'
+import MenuList from '../../Containers/MenuList'
 
 const Menu = () => {
   const { id } = useParams()
