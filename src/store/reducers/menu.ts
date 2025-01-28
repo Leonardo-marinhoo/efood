@@ -9,7 +9,7 @@ const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    updateMenu: (state, action: PayloadAction<Restaurante>) => {
+    updateMenu: (_state, action: PayloadAction<Restaurante>) => {
       if (action.payload) {
         return action.payload
       }

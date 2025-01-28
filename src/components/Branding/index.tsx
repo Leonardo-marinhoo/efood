@@ -1,4 +1,3 @@
-import React from 'react'
 import logo_img from '../../images/efood.png'
 import { Logo } from './styles'
 
