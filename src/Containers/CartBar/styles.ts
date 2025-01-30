@@ -136,7 +136,7 @@ export const Total = styled.div`
   }
 `
 
-export const Button = styled.div`
+export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,4 +147,15 @@ export const Button = styled.div`
   font-size: 14px;
   color: ${variables.text_accent};
   margin-top: 8px;
+  border: none;
+`
+export const DeleteButton = styled.button`
+  border: none;
+  outline: none;
+  background: none;
+  margin-top: auto;
+  margin-left: auto;
+  color: ${variables.text_accent};
+  font-size: 18px;
+  cursor: pointer;
 `

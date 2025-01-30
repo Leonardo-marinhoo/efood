@@ -16,7 +16,7 @@ const Restaurant = ({
   return (
     <S.Card>
       <S.Header image={capa}>
-        <S.InfoRow marginLeft="auto">
+        <S.InfoRow margin_left="auto">
           {destacado && <Badge>Destaque da semana</Badge>}
           <Badge>{tipo}</Badge>
         </S.InfoRow>
@@ -24,7 +24,7 @@ const Restaurant = ({
       <S.Body>
         <S.InfoRow>
           <S.Title>{titulo}</S.Title>
-          <S.InfoRow marginLeft="auto">
+          <S.InfoRow margin_left="auto">
             <S.Rating>{avaliacao}</S.Rating>
             <S.RatingIcon />
           </S.InfoRow>

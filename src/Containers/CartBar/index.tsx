@@ -3,7 +3,8 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 import { ToCurrency } from '../../utils/FormatCurrency'
 import { IoMdArrowBack } from 'react-icons/io'
-import { setCartVisibility } from '../../store/reducers/cart'
+import { removeFromCart, setCartVisibility } from '../../store/reducers/cart'
+import { RiDeleteBin6Line } from 'react-icons/ri'
 
 const CartBar = () => {
   const { items, isVisible } = useSelector((state: RootReducer) => state.Cart)
@@ -11,6 +12,9 @@ const CartBar = () => {
 
   const closeCart = () => {
     dispatch(setCartVisibility(false))
+  }
+  const removeItem = (id: number) => {
+    dispatch(removeFromCart(id))
   }
 
   const cartValue = items.reduce((acc, item) => {
@@ -35,6 +39,9 @@ const CartBar = () => {
                 <S.ProductTitle>{product.nome}</S.ProductTitle>
                 <S.ProductPrice>R$ {ToCurrency(product.preco)}</S.ProductPrice>
               </S.ProductDetails>
+              <S.DeleteButton onClick={() => removeItem(product.id)}>
+                <RiDeleteBin6Line />
+              </S.DeleteButton>
             </S.Product>
           ))}
         </S.ProductList>

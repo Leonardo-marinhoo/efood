@@ -7,7 +7,7 @@ type Props = {
   image: string
 }
 type RowProps = {
-  marginLeft?: string
+  margin_left?: string
 }
 
 export const Card = styled.div`
@@ -32,7 +32,7 @@ export const Header = styled.div<Props>`
 `
 export const InfoRow = styled.div<RowProps>`
   display: flex;
-  margin-left: ${(props) => (props.marginLeft ? props.marginLeft : '0')};
+  margin-left: ${(props) => (props.margin_left ? props.margin_left : '0')};
   align-items: center;
   height: fit-content;
   gap: 8px;

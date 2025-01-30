@@ -4,7 +4,7 @@ import Header from '../../Containers/Header'
 const Hero = () => {
   return (
     <S.Background>
-      <Header homePage />
+      <Header home_page />
       <Container>
         <S.Title>
           Viva experiências gastronômicas no conforto da sua casa

@@ -7,10 +7,10 @@ import { RootReducer } from '../../store'
 import { setCartVisibility } from '../../store/reducers/cart'
 
 type Props = {
-  homePage?: boolean
+  home_page?: boolean
 }
 
-export const Header = ({ homePage }: Props) => {
+export const Header = ({ home_page }: Props) => {
   const { items } = useSelector((state: RootReducer) => state.Cart)
   const dispatch = useDispatch()
 
@@ -21,9 +21,9 @@ export const Header = ({ homePage }: Props) => {
   const cartCount = () => `${items.length} - produto(s) no carrinho`
 
   return (
-    <S.HeaderBar homePage={homePage}>
+    <S.HeaderBar $home_page={home_page}>
       <Container $flex_row $align_items>
-        {!homePage && (
+        {!home_page && (
           <S.PageLinks>
             <S.PageItem>
               <Link to={'/'}>Restaurantes</Link>
@@ -31,7 +31,7 @@ export const Header = ({ homePage }: Props) => {
           </S.PageLinks>
         )}
         <Branding />
-        {!homePage && (
+        {!home_page && (
           <S.Cart onClick={() => openCart()}>
             <S.ItemCounter>{cartCount()}</S.ItemCounter>
           </S.Cart>

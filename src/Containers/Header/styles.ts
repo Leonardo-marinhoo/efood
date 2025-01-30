@@ -3,7 +3,7 @@ import bgImage from '../../images/fundo.png'
 import { variables } from '../../styles/variables'
 
 type bgProps = {
-  homePage?: boolean
+  $home_page?: boolean
 }
 
 export const HeaderBar = styled.header<bgProps>`
@@ -15,7 +15,7 @@ export const HeaderBar = styled.header<bgProps>`
   border-radius: 16px;
   color: ${variables.text_accent};
   justify-content: space-between;
-  background-image: url(${(props) => (props.homePage ? '' : bgImage)});
+  background-image: url(${(props) => (props.$home_page ? '' : bgImage)});
 `
 
 export const PageLinks = styled.ul`
