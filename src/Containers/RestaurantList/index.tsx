@@ -1,17 +1,10 @@
-import Restaurante from '../../models/Restaurante'
 import { Container } from '../../styles/GlobalStyle'
 import Restaurant from '../../components/Restaurant'
 import { List } from './styles'
-import { useEffect, useState } from 'react'
+import { useListRestaurantsQuery } from '../../services/api'
 
 const RestaurantList = () => {
-  const [restaurants, setRestaurants] = useState<Restaurante[]>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
-      .then((res) => res.json())
-      .then((res) => setRestaurants(res))
-  }, [restaurants])
+  const { data: restaurants } = useListRestaurantsQuery()
 
   return (
     <Container>

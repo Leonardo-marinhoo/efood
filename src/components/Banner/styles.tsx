@@ -4,15 +4,20 @@ type Props = {
   capa?: string
 }
 
-export const BannerContainer = styled.div<Props>`
-  display: flex;
-  flex-direction: column;
+export const Banner = styled.div<Props>`
   height: 280px;
   width: 100%;
-  padding: 32px 170px;
   color: #ffffff;
   background-image: url(${(props) => props.capa});
   background-size: cover;
+`
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 24px 0;
 `
 export const TypeTitle = styled.span`
   font-size: 32px;

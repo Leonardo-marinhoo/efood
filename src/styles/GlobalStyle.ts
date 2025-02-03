@@ -26,7 +26,6 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: ${(props) => (props.$flex_row ? 'row' : 'column')};
   align-items: ${(props) => (props.$align_items ? 'center' : 'start')};
   width: 1024px;
-  /* height: 100%; */
   margin: 0 auto;
   padding: 32px 0;
 `

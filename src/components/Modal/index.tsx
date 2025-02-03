@@ -30,17 +30,21 @@ const Modal = ({ product, isVisible, onClose }: Props) => {
     <S.ModalContainer $visible={isVisible}>
       <S.ModalContent>
         <S.CloseButton onClick={() => onClose()} />
-        <S.ProductImage src={product.foto} />
-        <S.ProductInfo>
-          <S.ProductTitle>{product.nome}</S.ProductTitle>
-          <S.ProductDescription>{product.descricao}</S.ProductDescription>
-          <S.ProductDescription margin_top="auto">
-            Serve {product.porcao}
-          </S.ProductDescription>
-          <S.AddButton onClick={() => handleAddToCart()}>
-            {ToCurrency(product.preco, 'Adicionar ao carrinho - ')}
-          </S.AddButton>
-        </S.ProductInfo>
+        <S.Product>
+          <S.ImageWraper>
+            <S.ProductImage src={product.foto} />
+          </S.ImageWraper>
+          <S.ProductDetails>
+            <S.ProductTitle>{product.nome}</S.ProductTitle>
+            <S.ProductDescription>{product.descricao}</S.ProductDescription>
+            <S.ProductDescription margin_top="auto">
+              Serve {product.porcao}
+            </S.ProductDescription>
+            <S.AddButton onClick={() => handleAddToCart()}>
+              {ToCurrency(product.preco, 'Adicionar ao carrinho - ')}
+            </S.AddButton>
+          </S.ProductDetails>
+        </S.Product>
       </S.ModalContent>
     </S.ModalContainer>
   )

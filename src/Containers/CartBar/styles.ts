@@ -140,7 +140,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 344px;
+  width: 100%;
   height: 24px;
   background: #ffebd9;
   font-weight: 700;
@@ -148,6 +148,7 @@ export const Button = styled.button`
   color: ${variables.text_accent};
   margin-top: 8px;
   border: none;
+  cursor: pointer;
 `
 export const DeleteButton = styled.button`
   border: none;

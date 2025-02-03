@@ -34,13 +34,26 @@ export const ModalContent = styled.div`
   padding: 32px;
   gap: 24px;
 `
-export const ProductInfo = styled.div`
+export const Product = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 280px;
+  gap: 24px;
+`
+export const ProductDetails = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
+  /* width: 100px; */
+`
+export const ImageWraper = styled.div`
+  height: 100%;
+  min-width: 280px;
+  overflow: hidden;
 `
 export const ProductImage = styled.img`
-  width: 280px;
-  height: 280px;
+  height: 100%;
+  width: auto;
   object-fit: contain;
 `
 export const ProductTitle = styled.span`
