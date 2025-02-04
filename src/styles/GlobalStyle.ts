@@ -14,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
     color: ${variables.text_accent};
     overflow-x: hidden;
   }
+  button{
+    cursor:pointer;
+  }
 `
 
 type ContainerProps = {
