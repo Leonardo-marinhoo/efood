@@ -11,13 +11,20 @@ import { useState } from 'react'
 const CartBar = () => {
   const { items, isVisible } = useSelector((state: RootReducer) => state.Cart)
   const dispatch = useDispatch()
-  const [OnCheckout, setOnCheckout] = useState(false)
+  const [isOnCheckout, setIsOnCheckout] = useState(false)
 
   const closeCart = () => {
     dispatch(setCartVisibility(false))
   }
   const removeItem = (id: number) => {
     dispatch(removeFromCart(id))
+  }
+  const OnCheckout = () => {
+    if (items.length > 0) {
+      setIsOnCheckout(true)
+    } else {
+      return alert('Adicione items ao seu carrinho')
+    }
   }
 
   const cartValue = items.reduce((acc, item) => {
@@ -30,9 +37,12 @@ const CartBar = () => {
         <IoMdArrowBack />
         <span>Voltar</span>
       </S.CloseBar>
-      {OnCheckout ? (
+      {isOnCheckout ? (
         <S.SidebarContent>
-          <CheckoutForm OnCancel={() => setOnCheckout(false)} />
+          <CheckoutForm
+            OnCancel={() => setIsOnCheckout(false)}
+            OnClose={closeCart}
+          />
         </S.SidebarContent>
       ) : (
         <S.SidebarContent>
@@ -59,9 +69,7 @@ const CartBar = () => {
             <span>Valor Total</span>
             <span>{ToCurrency(cartValue)}</span>
           </S.Total>
-          <S.Button onClick={() => setOnCheckout(true)}>
-            Continuar com a entrega
-          </S.Button>
+          <S.Button onClick={OnCheckout}>Continuar com a entrega</S.Button>
         </S.SidebarContent>
       )}
     </S.SidebarContainer>

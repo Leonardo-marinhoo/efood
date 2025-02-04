@@ -2,7 +2,7 @@ import { FormikProps, useFormik } from 'formik'
 import * as S from './styles'
 import * as Yup from 'yup'
 import { Button } from '../CartBar/styles'
-import { ReactNode, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { PurchaseResponse, usePurchaseMutation } from '../../services/api'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -23,6 +23,7 @@ type formikProps = {
 }
 type CheckoutProps = {
   OnCancel: () => void
+  OnClose: () => void
 }
 type stepProps = {
   formik: FormikProps<formikProps>
@@ -33,7 +34,7 @@ type stepProps = {
   orderResponse?: PurchaseResponse
 }
 
-const CheckoutForm = ({ OnCancel }: CheckoutProps) => {
+const CheckoutForm = ({ OnCancel, OnClose }: CheckoutProps) => {
   const [purchase, { data: orderResponse }] = usePurchaseMutation()
   const { items: cartProducts } = useSelector(
     (state: RootReducer) => state.Cart
@@ -150,7 +151,7 @@ const CheckoutForm = ({ OnCancel }: CheckoutProps) => {
       getError={getErrorMessage}
       cartTotalPrice={cartTotalPrice}
     />,
-    <Detalhes orderResponse={orderResponse} />
+    <Detalhes orderResponse={orderResponse} nextStep={OnClose} />
   ]
 
   return <S.Form onSubmit={formik.handleSubmit}>{stepComponent[step]}</S.Form>
@@ -321,7 +322,7 @@ const Pagamento = ({
     </S.Row>
     <S.Row>
       <S.InputGroup>
-        <Button type="submit">Continuar com o pagamento</Button>
+        <Button type="submit">Finalizar pagamento</Button>
         <Button type="button" onClick={prevStep}>
           Voltar para Endereço
         </Button>
@@ -329,7 +330,7 @@ const Pagamento = ({
     </S.Row>
   </S.FormContainer>
 )
-const Detalhes = ({ orderResponse }: Partial<stepProps>) => (
+const Detalhes = ({ orderResponse, nextStep }: Partial<stepProps>) => (
   <S.FormContainer>
     <S.FormTitle>Pedido Realizado - {orderResponse?.orderId}</S.FormTitle>
     <p>
@@ -348,6 +349,11 @@ const Detalhes = ({ orderResponse }: Partial<stepProps>) => (
       Esperamos que desfrute de uma deliciosa e agradável experiência
       gastronômica. Bom apetite!
     </p>
+    <S.InputGroup>
+      <Button type="button" onClick={nextStep}>
+        Concluir
+      </Button>
+    </S.InputGroup>
   </S.FormContainer>
 )
 export default CheckoutForm
