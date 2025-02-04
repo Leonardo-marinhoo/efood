@@ -41,7 +41,7 @@ const Modal = ({ product, isVisible, onClose }: Props) => {
               Serve {product.porcao}
             </S.ProductDescription>
             <S.AddButton onClick={() => handleAddToCart()}>
-              {ToCurrency(product.preco, 'Adicionar ao carrinho - ')}
+              Adicionar ao carrrinho - {ToCurrency(product.preco)}
             </S.AddButton>
           </S.ProductDetails>
         </S.Product>
