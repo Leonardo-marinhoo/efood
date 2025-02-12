@@ -59,7 +59,7 @@ const CartBar = () => {
                     R$ {ToCurrency(product.preco)}
                   </S.ProductPrice>
                 </S.ProductDetails>
-                <S.DeleteButton onClick={() => removeItem(product.id)}>
+                <S.DeleteButton onClick={() => removeItem(product.cart_id)}>
                   <RiDeleteBin6Line />
                 </S.DeleteButton>
               </S.Product>

@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Produto from '../../models/Produto'
 
+type CartProduct = Produto & {
+  cart_id: number
+}
+
 type carrinhoState = {
-  items: Produto[]
+  items: CartProduct[]
   isVisible?: boolean
 }
 
@@ -17,12 +21,16 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<Produto>) => {
       const produto = action.payload
-
-      state.items.push(produto)
+      const last_product = state.items[state.items.length - 1]
+      const cart_id = last_product ? last_product.cart_id + 1 : 1
+      state.items.push({
+        cart_id,
+        ...produto
+      })
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
-      const id = action.payload
-      state.items = state.items.filter((p) => p.id !== id)
+      const cart_id = action.payload
+      state.items = state.items.filter((p) => p.cart_id !== cart_id)
     },
     setCartVisibility: (state, action: PayloadAction<boolean>) => {
       state.isVisible = action.payload

@@ -26,23 +26,31 @@ export const Row = styled.div`
   gap: 36px;
   width: 100%;
 `
+type InputGroupProps = {
+  $submit_group?: boolean
+}
 
-export const InputGroup = styled.div`
+export const InputGroup = styled.div<InputGroupProps>`
   display: flex;
   flex-direction: column;
-  gap: 8px;
   width: 100%;
+  min-width: 0;
+
+  flex-grow: 1;
+  margin-top: ${(props) => (props.$submit_group ? '16px' : 0)};
 
   small {
     background-color: rgba(255, 255, 255, 0.2);
     width: fit-content;
-    color: yellow;
+    color: ${variables.text_accent_secondary};
     letter-spacing: 1px;
+    margin-bottom: 8px;
   }
 `
 export const Label = styled.label`
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 8px;
 `
 export const Input = styled.input`
   width: auto;

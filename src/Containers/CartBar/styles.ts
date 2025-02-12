@@ -74,7 +74,7 @@ export const SidebarHeader = styled.div`
 `
 
 export const SidebarContent = styled.aside`
-  width: 25vw;
+  width: 360px;
   height: 100vh;
   background: ${variables.text_accent};
   padding: 18px 8px;
@@ -146,7 +146,7 @@ export const Button = styled.button`
   font-weight: 700;
   font-size: 14px;
   color: ${variables.text_accent};
-  margin-top: 8px;
+  margin-bottom: 8px;
   border: none;
   cursor: pointer;
 `

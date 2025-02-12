@@ -137,6 +137,20 @@ const CheckoutForm = ({ OnCancel, OnClose }: CheckoutProps) => {
       }).finally(() => nextStep())
     }
   })
+
+  const OnSubmit = () => {
+    if (formik.isValid) {
+      formik.submitForm()
+    } else {
+      const wrongFields = Object.keys(formik.errors)
+      alert(
+        `Preencha os seguintes campos corretamente: \n- ${wrongFields.join(
+          '\n- '
+        )}`
+      )
+    }
+  }
+
   const stepComponent: ReactNode[] = [
     <Entrega
       formik={formik}
@@ -147,7 +161,7 @@ const CheckoutForm = ({ OnCancel, OnClose }: CheckoutProps) => {
     <Pagamento
       formik={formik}
       prevStep={prevStep}
-      nextStep={nextStep}
+      nextStep={OnSubmit}
       getError={getErrorMessage}
       cartTotalPrice={cartTotalPrice}
     />,
@@ -236,7 +250,7 @@ const Entrega = ({ formik, prevStep, nextStep, getError }: stepProps) => (
       </S.InputGroup>
     </S.Row>
     <S.Row>
-      <S.InputGroup>
+      <S.InputGroup $submit_group>
         <Button type="button" onClick={nextStep}>
           Continuar com o pagamento
         </Button>
@@ -250,6 +264,7 @@ const Entrega = ({ formik, prevStep, nextStep, getError }: stepProps) => (
 const Pagamento = ({
   formik,
   prevStep,
+  nextStep,
   getError,
   cartTotalPrice
 }: stepProps) => (
@@ -321,8 +336,10 @@ const Pagamento = ({
       </S.InputGroup>
     </S.Row>
     <S.Row>
-      <S.InputGroup>
-        <Button type="submit">Finalizar pagamento</Button>
+      <S.InputGroup $submit_group>
+        <Button type="button" onClick={nextStep}>
+          Finalizar pagamento
+        </Button>
         <Button type="button" onClick={prevStep}>
           Voltar para Endereço
         </Button>
